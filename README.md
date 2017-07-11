@@ -9,16 +9,17 @@ Based on http://testdriven.io/part-one-getting-started/
 ### Usage
 #### Local
 ```
-python3 -m venv env
-source env/bin/activate
-pip install -r requirements.txt
+source activate_venv.sh
 python manage.py runserver
 ```
 
 #### Docker compose
 ```
-docker-compose up -d
+docker-compose up -d --build
 curl localhost:5001/ping
+
+# create db
+docker-compose run template-service python manage.py recreate_db
 ...
 docker-compose down
 ```

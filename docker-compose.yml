@@ -1,6 +1,17 @@
 version: '2.1'
 
 services:
+    template-db:
+        container_name: template-db
+        build: ./project/db
+        ports:
+            - 5435:5432
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        healthcheck:
+            test: exit 0
+
     template-service:
         container_name: template-service
         build: .
@@ -10,3 +21,10 @@ services:
             - 5001:5000
         environment:
             - APP_SETTINGS=project.config.DevelopmentConfig
+            - DATABASE_URL=postgres://postgres:postgres@template-db:5432/template_dev
+            - DATABASE_TEST_URL=postgres://postgres:postgres@template-db:5432/template_test
+        depends_on:
+            template-db:
+                condition: service_healthy
+        links:
+            - template-db
