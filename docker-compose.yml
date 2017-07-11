@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+    template-service:
+        container_name: template-service
+        build: .
+        volumes:
+            - '.:/app'
+        ports:
+            - 5001:5000
+        environment:
+            - APP_SETTINGS=project.config.DevelopmentConfig
