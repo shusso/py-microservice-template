@@ -1,5 +1,5 @@
 click==7.0
-Flask==1.1.0
+Flask==1.1.1
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.4.0
 Flask-Testing==0.7.1
