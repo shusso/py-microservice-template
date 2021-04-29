@@ -6,5 +6,5 @@ Flask-Testing==0.8.1
 itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
-SQLAlchemy==1.4.11
+SQLAlchemy==1.4.12
 Werkzeug==1.0.1
